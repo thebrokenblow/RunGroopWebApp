@@ -13,8 +13,9 @@ public class Club
     public string? Image { get; set; }
     [ForeignKey("Address")]
     public int AddressId { get; set; }
-    public Address Address { get; set; }
+    public Address? Address { get; set; }
     public ClubCategory ClubCategory { get; set; }
+    [ForeignKey("AppUser")]
     public string? AppUserId { get; set; }
     public AppUser? AppUser { get; set; }
 
