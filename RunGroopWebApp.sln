@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroopWebApp", "RunGroopWebApp\RunGroopWebApp.csproj", "{522D7509-2AEA-4FE8-8240-D44F6E48F27C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{522D7509-2AEA-4FE8-8240-D44F6E48F27C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{522D7509-2AEA-4FE8-8240-D44F6E48F27C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{522D7509-2AEA-4FE8-8240-D44F6E48F27C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{522D7509-2AEA-4FE8-8240-D44F6E48F27C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2C74A1E-5493-49F7-AD38-FD8BD39B8EC8}
+	EndGlobalSection
+EndGlobal
