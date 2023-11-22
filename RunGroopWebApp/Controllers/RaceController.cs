@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using RunGroopWebApp.Models;
+using Microsoft.AspNetCore.Mvc;
 using RunGroopWebApp.Interfaces;
-
 namespace RunGroopWebApp.Controllers;
 
 public class RaceController : Controller
@@ -20,6 +20,23 @@ public class RaceController : Controller
     public async Task<IActionResult> Detail(int id)
     {
         var race = await _raceRepository.GetByIdAsync(id);
+        return View(race);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Race race)
+    {
+        if (ModelState.IsValid)
+        {
+            _raceRepository.Add(race);
+            return RedirectToAction("Index");
+        }
+
         return View(race);
     }
 }

@@ -30,13 +30,14 @@ public class ClubController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Club club)
+    public IActionResult Create(Club club)
     {
         if (ModelState.IsValid)
         {
             _clubRepository.Add(club);
             return RedirectToAction("Index");
         }
+
         return View(club);
     }
 }
