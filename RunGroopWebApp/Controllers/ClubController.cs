@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RunGroopWebApp.Interfaces;
+using RunGroopWebApp.Models;
 
 namespace RunGroopWebApp.Controllers;
 
@@ -20,6 +21,22 @@ public class ClubController : Controller
     public async Task<IActionResult> Detail(int id)
     {
         var club = await _clubRepository.GetByIdAsync(id);
+        return View(club);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(Club club)
+    {
+        if (ModelState.IsValid)
+        {
+            _clubRepository.Add(club);
+            return RedirectToAction("Index");
+        }
         return View(club);
     }
 }
