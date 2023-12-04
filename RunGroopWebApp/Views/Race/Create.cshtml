@@ -1,7 +1,9 @@
 ﻿@using RunGroopWebApp.Data.Enum
-@model Race
+@using RunGroopWebApp.ViewModels
 
-<form method="post" asp-action="create">
+@model CreateRaceViewModel
+
+<form method="post" asp-action="create" enctype="multipart/form-data">
     <div class="mb-3">
         <label asp-for="Title" class="form-label">Title</label>
         <input asp-for="Title" class="form-control" placeholder="Enter Title">
@@ -20,19 +22,24 @@
         <span asp-validation-for="RaceCategory" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Address.Street" class="form-label">Street</label>
-        <input asp-for="Address.Street" class="form-control" placeholder="Enter Street">
-        <span asp-validation-for="Address.Street" class="text-danger"></span>
+        <label asp-for="Address!.Street" class="form-label">Street</label>
+        <input asp-for="Address!.Street" class="form-control" placeholder="Enter Street">
+        <span asp-validation-for="Address!.Street" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Address.City" class="form-label">City</label>
-        <input asp-for="Address.City" class="form-control" placeholder="Enter City">
-        <span asp-validation-for="Address.City" class="text-danger"></span>
+        <label asp-for="Address!.City" class="form-label">City</label>
+        <input asp-for="Address!.City" class="form-control" placeholder="Enter City">
+        <span asp-validation-for="Address!.City" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Address.State" class="form-label">State</label>
-        <input asp-for="Address.State" class="form-control" placeholder="Enter State">
-        <span asp-validation-for="Address.State" class="text-danger"></span>
+        <label asp-for="Address!.State" class="form-label">State</label>
+        <input asp-for="Address!.State" class="form-control" placeholder="Enter State">
+        <span asp-validation-for="Address!.State" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Image" class="form-label">Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Enter Image Address">
+        <span asp-validation-for="Image" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

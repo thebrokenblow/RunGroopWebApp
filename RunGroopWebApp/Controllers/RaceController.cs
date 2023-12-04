@@ -1,14 +1,19 @@
-﻿using RunGroopWebApp.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RunGroopWebApp.Interfaces;
+using RunGroopWebApp.Models;
+using RunGroopWebApp.Repository;
+using RunGroopWebApp.ViewModels;
+
 namespace RunGroopWebApp.Controllers;
 
 public class RaceController : Controller
 {
     private readonly IRaceRepository _raceRepository;
-    public RaceController(IRaceRepository raceRepository)
+    private readonly IPhotoService _photoService;
+    public RaceController(IRaceRepository raceRepository, IPhotoService photoService)
     {
         _raceRepository = raceRepository;
+        _photoService = photoService;
     }
 
     public async Task<IActionResult> Index()
@@ -29,14 +34,35 @@ public class RaceController : Controller
     }
 
     [HttpPost]
-    public IActionResult Create(Race race)
+    public async Task<IActionResult> Create(CreateRaceViewModel raceVM)
     {
         if (ModelState.IsValid)
         {
-            _raceRepository.Add(race);
-            return RedirectToAction("Index");
+            var result = await _photoService.AddPhotoAsync(raceVM.Image);
+
+            if (result.Error == null)
+            {
+                var race = new Race
+                {
+                    Title = raceVM.Title,
+                    Description = raceVM.Description,
+                    Image = result.Url.ToString(),
+                    Address = new Address
+                    {
+                        Street = raceVM.Address?.Street,
+                        City = raceVM.Address?.City,
+                        State = raceVM.Address?.State
+                    }
+                };
+
+                _raceRepository.Add(race);
+
+                return RedirectToAction("Index");
+            }
         }
 
-        return View(race);
+        ModelState.AddModelError("Image", "Photo upload failed");
+
+        return View(raceVM);
     }
 }
