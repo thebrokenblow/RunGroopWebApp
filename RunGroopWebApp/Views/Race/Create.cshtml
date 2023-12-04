@@ -13,11 +13,6 @@
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div class="mb-3">
-        <label asp-for="Image" class="form-label">Image</label>
-        <input asp-for="Image" class="form-control" placeholder="Enter Image Address">
-        <span asp-validation-for="Image" class="text-danger"></span>
-    </div>
-    <div class="mb-3">
         <label asp-for="RaceCategory" class="form-label">RaceCategory</label>
         <select asp-for="RaceCategory" asp-items="@Html.GetEnumSelectList<RaceCategory>()" class="form-control">
             <option>--Select--</option>
