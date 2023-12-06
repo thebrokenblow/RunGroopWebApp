@@ -2,7 +2,6 @@
 using RunGroopWebApp.Interfaces;
 using RunGroopWebApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-
 namespace RunGroopWebApp.Controllers;
 
 public class RaceController : Controller
