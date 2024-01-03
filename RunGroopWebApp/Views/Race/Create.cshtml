@@ -1,11 +1,7 @@
 ﻿@using RunGroopWebApp.Data.Enum
 @using RunGroopWebApp.ViewModels
+
 @model CreateRaceViewModel
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
 
 <form method="post" asp-action="Create" enctype="multipart/form-data">
     <input type="hidden" id="AppUserId" name="AppUserId" asp-for="AppUserId" />
