@@ -28,6 +28,7 @@ public class UserController : Controller
                 UserName = user.UserName,
                 Pace = user.Pace,
                 Mileage = user.Mileage,
+                ProfileImageUrl = user.ProfileImageUrl
             };
             usersViewModel.Add(userViewModel);
         }
